@@ -213,14 +213,14 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
     // chuyển đến trang login nếu chưa được login
-    const publicPages = [ '/login' ,'/system'];
-    const authRequired = !publicPages.includes(to.path);
-    const loggedIn = localStorage.getItem('access_token');
+    // const publicPages = [ '/login' ,'/system'];
+    // const authRequired = !publicPages.includes(to.path);
+    // const loggedIn = localStorage.getItem('access_token');
   
-    if (authRequired && !loggedIn) {
-      return next('/login');
-    }
+    // if (authRequired && !loggedIn) {
+    //   return next('/login');
+    // }
   
-    next();
+    // next();
   })
 export default router
