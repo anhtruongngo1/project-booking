@@ -1,9 +1,9 @@
 <template>
-   <div className="relative pt-[10px] bg-[url(https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100063/booking-care/header-background_gm24vt.jpg)] h-[100vh] bg-no-repeat bg-cover bg-center">
+   <div className="relative pt-[10px] bg-[url(https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg)] h-[100vh] bg-no-repeat bg-cover bg-center">
             <div className="text-3x items-center text-white drop-shadow-textop mt-56"></div>
 
             <div className="text-3xl text-center text-white drop-shadow-text">{{$t('homeheader.specialty') }}</div>
-            <div className="flex items-center mx-auto w-[400px] justify-center p-2.5 rounded-sm bg-[#D0F0D8] ">
+            <div className="flex items-center mx-auto w-[400px] justify-center p-2.5 rounded-sm ">
                 <FontAwesomeIcon icon={faBars} />
                 <input
                     type="text"
@@ -15,7 +15,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100874/booking-care/133537-khamchuyenkhoa_pyccta.png"
+                            src="https://cdn.bookingcare.vn/fo/2021/12/08/133537-khamchuyenkhoa.png"
                             alt=""
                         />
                     </div>
@@ -25,7 +25,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100872/booking-care/133657-khamtuxa_b3msst.png"
+                            src="https://cdn.bookingcare.vn/fo/2021/12/08/133657-khamtuxa.png"
                             alt=""
                         />
                     </div>
@@ -35,7 +35,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100870/booking-care/133744-khamtongquat_cs8kmx.png"
+                            src="https://cdn.bookingcare.vn/fo/2021/12/08/133744-khamtongquat.png"
                             alt=""
                         />
                     </div>
@@ -45,7 +45,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100869/booking-care/133744-dichvuxetnghiem_d25fru.png"
+                            src="https://cdn.bookingcare.vn/fo/2021/12/08/133744-dichvuxetnghiem.png"
                             alt=""
                         />
                     </div>
@@ -55,7 +55,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100867/booking-care/133744-suckhoetinhthan_eao9yj.png"
+                            src="https://cdn.bookingcare.vn/fo/2021/12/08/133744-suckhoetinhthan.png"
                             alt=""
                         />
                     </div>
@@ -65,7 +65,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100865/booking-care/104635-khamnhakhoa_kbxciz.png"
+                            src="https://cdn.bookingcare.vn/fo/2022/05/19/104635-khamnhakhoa.png"
                             alt=""
                         />
                     </div>
@@ -75,7 +75,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100864/booking-care/151930-phau-thuat_ipe4jy.jpg"
+                            src="https://cdn.bookingcare.vn/fo/2022/05/16/151930-phau-thuat.jpg"
                             alt=""
                         />
                     </div>
@@ -85,7 +85,7 @@
                     <div className="mt-[14px] bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100861/booking-care/133744-khamtainha_mcgjjr.png"
+                            src="https://cdn.bookingcare.vn/fo/2021/12/08/133744-khamtainha.png"
                             alt=""
                         />
                     </div>
@@ -95,7 +95,7 @@
                     <div className="bg-white w-[50px] rounded-[50px] h-full flex items-center justify-center  ">
                         <img
                             className="h-[80%]"
-                            src="https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678100858/booking-care/101157-icon-lich-su_ubsi9v.jpg"
+                            src="https://cdn.bookingcare.vn/fo/2023/04/12/160542-icon-bai-test-suc-khoe.png"
                             alt=""
                         />
                     </div>

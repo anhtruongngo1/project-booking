@@ -56,7 +56,7 @@ export default {
                     },
                     {
                         type: 'user',
-                        to  : '/system/manager-schedule',
+                        to  : '/system/manager-patient',
                         title: 'menu.admin.manage-apointments',
                     },
                 ],

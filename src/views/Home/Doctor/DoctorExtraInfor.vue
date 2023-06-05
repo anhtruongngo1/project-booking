@@ -32,12 +32,17 @@
 <script>
 import useDoctor from '@/services/apiDetailDoctor';
 import i18n from '@/language/i18n';
-import { useRoute } from 'vue-router';
-
-import { ref  , computed} from 'vue';
+import { ref  , computed , watch} from 'vue';
 export default {
-    setup() {
-        const route = useRoute();
+    props: {
+        idDoctor : String
+    },
+    setup(props) {
+        const idDoctor = ref('')
+
+        watch(() => props.idDoctor, (pa, pb) => {
+            idDoctor.value = pa
+           })
 
         const local = computed(() => i18n.global.locale);
         const { getExtraInforDoctorById } = useDoctor();
@@ -49,17 +54,19 @@ export default {
                 valueVi: '',
             },
         });
-        const handleData = async () => {
-            const res = await getExtraInforDoctorById(route.params.id);
+        if (props.idDoctor) {
+            const handleData = async () => {
+            const res = await getExtraInforDoctorById(idDoctor.value);
             if (res && res.infor.errCode === 0) {
                 listData.value = res.infor.data;
             }
         };
+        handleData();
+        }
+        
         const handleShow = () => {
             isShowDetaiInfor.value = !isShowDetaiInfor.value
         }
-        handleData();
-
         return {
             listData,
             isShowDetaiInfor,

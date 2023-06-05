@@ -85,6 +85,8 @@ import useActionBlog from "@/services/apiBlogs"
 import { format } from 'date-fns';
 import {ref , inject} from "vue"
 import handbookBarVue from './handbookBar.vue';
+import router from '@/router/router';
+
 export default {
     setup() {
         const { errorData, fetchListBlog, listData , totalPage } = useBlog();
@@ -156,6 +158,9 @@ export default {
                 }
             });
         }
+        const handleEdit = (id) => {
+            router.push(`/system/manager-handbook/create-handbook/${id}`)
+        }
         emitter.on('handleSearchBlog', (value) => {
             fetchListBlog({
                 q : value
@@ -164,7 +169,7 @@ export default {
         });
         return {
             listData,
-            formatDate,totalPage ,pageIndex , nextPage , prevPage , handleDeleteBlog
+            formatDate,totalPage ,pageIndex , nextPage , prevPage , handleDeleteBlog , handleEdit
         };
     },
     components: {

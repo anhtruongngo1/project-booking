@@ -14,7 +14,7 @@
                     {{ listData.Markdown.description }} 
                     </span>
                     <div className="uppercase font-bold"> 
-                        <p>giá khám : {{ (listData2.priceData.valueVi || 0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }} vnd  </p> 
+                        <p>giá khám : {{ listData2.priceData.valueVi  }} vnd  </p> 
                         <p> Thời gian : {{ dataSend.timeTypeData.valueVi }} {{ moment.unix(dataSend.date / 1000).format('dddd - DD/MM/YYYY') }} </p>
           </div>
               </div> 
@@ -38,10 +38,12 @@ import moment from 'moment';
 
 export default {
     props: {
-        time : Object   
+        time: Object,
+        idDoctor : String
     },
     setup(props) 
     {
+        const idDoctor = ref('')
         const dataSend = ref({
             timeTypeData: {
                 valueVi: '',
@@ -51,7 +53,10 @@ export default {
         watch(() => props.time, (pa, pb) => {
             dataSend.value = pa
         })
-        console.log('data send' , props.time);
+        watch(() => props.idDoctor, (pa, pb) => {
+            idDoctor.value = pa
+
+        })
         const { getExtraInforDoctorById , getDetailsDoctor } = useDoctor();
 
         const route = useRoute();
@@ -64,12 +69,12 @@ export default {
             nameClinic: '',
             addressClinic: '',
             priceData: {
-                valueVi: '',
+                valueVi: '10000',
             },
         });
         const handleData = async () => {
-            const res = await getExtraInforDoctorById(route.params.id);
-            const res2 = await getDetailsDoctor(route.params.id);
+            const res = await getExtraInforDoctorById(idDoctor.value);
+            const res2 = await getDetailsDoctor(idDoctor.value);
             if (res && res.infor.errCode === 0) {
                 listData2.value = res.infor.data;
             }
@@ -77,7 +82,7 @@ export default {
                 listData.value = res2.data;
             }
         };
-        handleData();
+        handleData()
         return {
             listData2,
             listData,

@@ -39,7 +39,7 @@ export default {
         })
         const local = computed(() => i18n.global.locale);
         const {errorData , fetchListClinic , listData } = useClinic();
-        fetchListClinic({pageIndex : 0})
+        fetchListClinic({pageIndex : 0 , size : '9'})
         const validateInput = () => {
             validateSelectField('clinicId', clinicId.value);
         };

@@ -5,12 +5,15 @@ export default function () {
     let errorData = ref('');
     let totalPage = ref(null)
 
-    const fetchListClinic = async ({pageIndex}) => {
+    const fetchListClinic = async ({pageIndex , size}) => {
         try {
             if (!pageIndex) {
                 pageIndex = 0
             }
-            const res = await axios.get(`/api/get-all-clinic?page=${pageIndex}&size=6`);
+            if (!size) {
+                size= 5
+            }
+            const res = await axios.get(`/api/get-all-clinic?page=${pageIndex}&size=${size}`);
 
             if (res && res.errCode === 0) {
           

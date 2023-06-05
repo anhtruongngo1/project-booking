@@ -4,12 +4,15 @@ export default function () {
     const listData = ref({});
     let errorData = ref('');
     let totalPage = ref(null)
-    const fetchListSpecial = async ({pageIndex}) => {
+    const fetchListSpecial = async ({pageIndex , size}) => {
         try {
             if (!pageIndex) {
                 pageIndex = 0
             }
-            const res = await axios.get(`/api/get-all-specialty?page=${pageIndex}&size=6`);
+            if (!size) {
+                size = 5
+            }
+            const res = await axios.get(`/api/get-all-specialty?page=${pageIndex}&size=${size}`);
 
             if (res && res.errCode === 0) {
           

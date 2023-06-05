@@ -101,7 +101,7 @@ export default {
                 snapAlign: 'start',
             },
         };
-        fetchListClinic({pageIndex : 0})
+        fetchListClinic({pageIndex : 0 , size :'6'})
         return { slides, settings, breakpoints , listData};
     },
     components: {

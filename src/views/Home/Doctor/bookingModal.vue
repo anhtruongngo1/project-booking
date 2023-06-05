@@ -10,7 +10,7 @@
                 <!-- Modal header -->
                 <h2 class="text-lg font-bold mb-4 text-center">Thông tin đặt lịch khám</h2>
                 <!-- Modal body -->
-                <div><profileDoctor v-bind:time="chooseData.chosseDate" /></div>
+                <div><profileDoctor v-bind:time="chooseData.chosseDate" :idDoctor="idDoctor" /></div>
                 <form @submit.prevent="handleSubmit">
                     <div class="mb-4">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white " for="name"> Họ tên </label>
@@ -107,11 +107,12 @@ import { ref , watch , inject} from "vue"
 import useBooking from "@/services/apiBooking"
 import moment from 'moment';
 import {useLoading} from 'vue-loading-overlay'
-
+import { useRoute } from 'vue-router';
 
 export default {
   props: {
-    dataDate: String,
+        dataDate: String,
+        idDoctor : String
   },
   setup(props) {
 
@@ -120,7 +121,7 @@ export default {
         color :'#009B00'
     });
 
-
+    const idDoctor = ref('')
     const name = ref('')
     const phone = ref('')
     const email = ref('')
@@ -131,9 +132,14 @@ export default {
     const isShowModal = ref(false)
     const emitter = inject('emitter');
     const swal = inject('$swal');
-    const chooseData = ref('')
+      const chooseData = ref('')
+      const route = useRoute();
+
     watch(() => props.isShowModal, (pa, pb) => {
       isShowModal.value = pa
+    })
+    watch(() => props.idDoctor, (pa, pb) => {
+        idDoctor.value = pa
     })
     const Toast = swal.mixin({
               toast: true,
@@ -153,7 +159,7 @@ export default {
             // Optional parameters
         });
       const res = await createBooking({
-        doctorId: '1',
+        doctorId: idDoctor.value,
         email: email.value,
         address: address.value,
         timeString: chooseData.value.chosseDate.timeTypeData.valueVi + '' +  moment.unix(chooseData.value.dataDate / 1000).format('dddd - DD/MM/YYYY'),
@@ -173,6 +179,7 @@ export default {
                     icon: 'success',
                     title: "Đặt lịch thành công ! vui lòng xác nhận email để chấp nhận",
         });
+        emitter.emit('handleConfirmbooking');
                 isShowModal.value = false
         }
 
@@ -185,7 +192,6 @@ export default {
             // *Listen* for event
       isShowModal.value = true
       chooseData.value = data
-      console.log('check1' , chooseData.value );
         });
       
     return {
@@ -199,7 +205,8 @@ export default {
       reason,
       isShowModal,
       handleSubmit,
-      chooseData
+        chooseData,
+      idDoctor
           
         };
     },

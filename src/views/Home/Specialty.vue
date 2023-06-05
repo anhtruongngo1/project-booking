@@ -16,18 +16,20 @@
                 </div> -->
                 <Carousel v-bind="settings" :breakpoints="breakpoints">
                     <Slide v-for="item in listData" :key="item.id">
+                        <router-link :to="`/doctor/${item.id}`">
                         <div>
                             <div
-                        :class="`w-[278px] h-[150px] bg-cover  bg-center bg-no-repeat`"
+                        :class="`w-[200px] h-[150px] bg-cover  bg-center bg-no-repeat`"
                         :style="`background-image : url(${item.image})`"
 
                     ></div>
                      <div>{{ item.name }}</div> 
                         </div>
+                    </router-link>
                     </Slide>
 
-                    <template #addons>
-                        <Navigation />
+                    <template >
+                        <Navigation   />
                     </template>
                 </Carousel>
             </div>
@@ -46,14 +48,14 @@ export default {
     name: 'specialty',
     setup() {
         const settings = {
-            itemsToShow: 1,
+            itemsToShow: 3,
             snapAlign: 'center',
         };
         const {errorData , fetchListSpecial , listData} = useSpcialy()
         const breakpoints = {
             // 700px and up
             700: {
-                itemsToShow: 3.5,
+                itemsToShow: 2,
                 snapAlign: 'center',
             },
             // 1024 and up
@@ -62,7 +64,7 @@ export default {
                 snapAlign: 'start',
             },
         };
-        fetchListSpecial()
+        fetchListSpecial({pageIndex : '0' , size : '5'})
 
         return {  settings, breakpoints , listData  };
     },

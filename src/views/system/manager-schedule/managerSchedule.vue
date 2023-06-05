@@ -3,7 +3,7 @@
         <div className="uppercase my-[15px] text-[17px] text-center font-semibold">
             QUẢN LÍ KẾ HOẠCH KHÁM BỆNH CỦA BÁC SĨ
         </div>
-        <div className="flex px-[10%] text- ">
+        <div className="flex px-[10%]  ">
             <div className="w-full">
                 <doctorField v-model="doctorId" v-bind:doctorId="doctorId" />
             </div>

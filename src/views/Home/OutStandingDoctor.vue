@@ -3,22 +3,22 @@
             <div className="mx-[170px] flex flex-col">
                 <div className="h-[60px] mb-5 pt-5 ">
                     <span className='text-xl font-semibold'>Bác sĩ nổi bật tuần qua</span>
-                    <button className="text-black uppercase cursor-pointer float-right px-4 py-3 border-none outline-none block bg-[#ebebeb] text-[#ebebeb] hover:text-white hover:bg-[#f7d800]">
+                    <router-link :to="`/doctor`" className="text-black uppercase cursor-pointer float-right px-4 py-3 border-none outline-none block bg-[#ebebeb] text-[#ebebeb] hover:text-white hover:bg-[#f7d800]">
                         tim kiếm
-                    </button>
+                    </router-link>
                 </div>
                 <div >
                 </div>
                 <Carousel v-bind="settings" :breakpoints="breakpoints">
                     <Slide v-for="item in dataDoctor" :key="item.id">
-                        <div className="border border-solid border-[#EEEEEE] w-full m-2">
+                        <router-link :to="`/doctor/${item.id}`" className="border border-solid border-[#EEEEEE] w-full m-2">
                             <div className="w-full h-[200px] bg-center bg-cover bg-no-repeat bg-white flex items-center flex-col">
                                 <div className="w-full  h-[120px] mt-2.5 flex  justify-center">
                                     <img className='w-[120px] h-[120px] rounded-[50%]' :src="`${item.image}`" />
                                 </div>
                                 <span className='block text-center'>{{ item.firstName }} {{ item.lastName }}</span>
                             </div>
-                        </div>
+                        </router-link>
                     </Slide>
 
                     <template #addons>
@@ -39,44 +39,7 @@ export default {
     name: 'Outstanding',
     setup() {
         const {dataDoctor , errorData , getTopdoctor} = useDoctor()
-        const slides = ref([
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-            {
-                name: 'khoa tam ly',
-                url: 'https://res.cloudinary.com/dl0wt2mgx/image/upload/v1678187349/booking-care/111237-tam-ly-2_d3mbab.jpg',
-            },
-        ]);
+
         const settings = {
             itemsToShow: 1,
             snapAlign: 'center',
@@ -94,7 +57,7 @@ export default {
             },
         };
         getTopdoctor()
-        return { slides, settings, breakpoints , dataDoctor };
+        return { settings, breakpoints , dataDoctor };
     },
     components: {
         Carousel,

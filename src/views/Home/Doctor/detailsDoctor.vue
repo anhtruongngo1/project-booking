@@ -1,30 +1,31 @@
 <template>
-    <div className="h-[500px] bg-[#DAECFE] pb-[100px]">
-        <div className="mx-[100px] flex y-[50px]">
-            <div className="w-[10%]">
-                <img className="w-full rounded-[50%]" :src="listData.image" />
+    <div className="h-[500px] pb-[100px]">
+        <div className="mx-[10%] flex pt-[50px]">
+            <div className="">
+                <img className="w-[120px] h-[120px] rounded-[50%] object-cover object-center" :src="listData.image" />
             </div>
             <div className="w-[90%] flex flex-col pl-[45px] pt-[15px]">
                 <div className="text-xl font-semibold ">{{ listData.firstName }} {{ listData.lastName }}</div>
                 <div className="pt-2">
                     <span>
                         {{ listData.Markdown.description }}
+        
                     </span>
                 </div>
             </div>
         </div>
-        <div className="mx-auto flex  min-h-[200px] max-w-[1440px] mt-[100px]">
+        <div className="mx-auto flex px-[10%]  min-h-[200px] max-w-[1440px] mt-[100px]">
             <div className="w-[50%]">
-                <DoctorSchedule  />
+                <DoctorSchedule v-bind:idDoctor="listData.id"  />
                 <!-- <DoctorSchedule currentDoctorId={this.state.currentDoctorId}/> -->
             </div>
             <div className="w-[50%]">
-                <DoctorExtraInfor />
+                <DoctorExtraInfor v-bind:idDoctor="listData.id" />
                 <!-- <DoctorExtraInfo  currentDoctorId={this.state.currentDoctorId}/> -->
             </div>
         </div>     
     </div>
-    <div className="bg-[#F9F9F9] pt-[50px] px-52  ">
+    <div className="bg-[#F9F9F9] pt-[50px] px-[10%]  ">
           <div v-html="convertedMarkdown" className="comment-doctor list-disc"></div>
         </div>
 </template>
@@ -50,7 +51,6 @@ export default {
             const res = await getDetailsDoctor(route.params.id);
             if (res && res.errCode === 0) {
                 listData.value = res.data;
-                console.log('checkkk', listData.value);
             }
         };
         handleData();

@@ -9,10 +9,10 @@
             </div>
 
             <div v-for="item in listData" :key="item.id" class="comments-wrapper border-solid border-2 border-[#e8e8e8] rounded-xl mb-5">
-                <div class="comment p-10">
+                <router-link :to="`/handbook/${item.id}`" class="comment p-10 cursor-pointer block">
                     <div class="comment-user-info flex justify-between mb-5">
                         <div class="left flex">
-                            <img class="rounded-full h-6" :src="item.User.image" alt="" />
+                            <img class="rounded-full h-6 min-w-[50px] min-h-[50px]" :src="item.User.image" alt="" />
                             <h3 class="font-semibold name ml-2">{{ item.User.lastName }} {{ item.User.firstName }}</h3>
                         </div>
                         <div class="right">
@@ -32,7 +32,7 @@
                             <img class="rounded-xl w-[200px] h-[120px]" :src="item.thumb" alt="" />
                         </div>
                     </div>
-                </div>
+                </router-link>
             </div>
 
          

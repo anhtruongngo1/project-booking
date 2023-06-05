@@ -14,7 +14,7 @@
                 </div> -->
                 <Carousel v-bind="settings" :breakpoints="breakpoints">
                     <Slide v-for="item in listData" :key="item.id">
-                            <div class="flex flex-row gap-5 w-full ">
+                            <router-link :to="`/handbook/${item.id}`" class="flex flex-row gap-5 w-full ">
                                 <div
                                     class="`basis-1/2 w-[50%] h-[200px] bg-cover bg-white bg-center bg-no-repeat`"
                                     :style="`background-image : url(${item.thumb})`"
@@ -23,7 +23,7 @@
                                 <div class="basis-1/2 ">
                                     <h3>{{ item.title }}</h3>
                                 </div>                    
-                        </div>
+                        </router-link>
                     </Slide>
 
                     <template #addons>

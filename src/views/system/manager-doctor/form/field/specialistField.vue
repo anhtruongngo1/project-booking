@@ -37,7 +37,7 @@ export default {
         })
         const local = computed(() => i18n.global.locale);
         const { errorData, fetchListSpecial, listData } = useSpecial();
-        fetchListSpecial({pageIndex : '0'})
+        fetchListSpecial({pageIndex : '0' , size : '9'})
         const { validateSelectField, errors } = useFormValidation();
         const validateInput = () => {
             validateSelectField('specialListId', specialListId.value);
